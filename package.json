@@ -1,0 +1,35 @@
+{
+  "name": "gargantua-black-hole",
+  "version": "1.0.0",
+  "description": "Una impresionante visualización 3D de un agujero negro con música de fondo atmosférica",
+  "main": "index.html",
+  "scripts": {
+    "start": "npx serve .",
+    "dev": "npx serve . --listen 3000",
+    "download-audio": "yt-dlp -x --audio-format mp3 -o \"assets/gargantua-theme.%(ext)s\" \"https://www.youtube.com/watch?v=UDVtMYqUAyw\"",
+    "build": "echo 'No build step required for static site'"
+  },
+  "keywords": [
+    "black-hole",
+    "three.js",
+    "webgl",
+    "visualization",
+    "space",
+    "astronomy",
+    "gargantua",
+    "interstellar"
+  ],
+  "author": "Tu Nombre",
+  "license": "MIT",
+  "devDependencies": {
+    "serve": "^14.2.1"
+  },
+  "engines": {
+    "node": ">=14.0.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/tu-usuario/gargantua.git"
+  },
+  "homepage": "https://tu-usuario.github.io/gargantua"
+}
