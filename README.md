@@ -56,6 +56,7 @@ El audio está configurado para:
 - ✅ Efecto de fade-in cinematográfico (5 segundos)
 - ✅ Transición suave de volumen de 0% a 100%
 - ✅ Interfaz minimalista que se integra con el tema espacial
+- ✅ Audio optimizado para web (2.69 MB, 96 kbps)
 
 **Nota:** Algunos navegadores bloquean el autoplay por políticas de seguridad. En ese caso, el audio se iniciará con el primer clic del usuario.
 
