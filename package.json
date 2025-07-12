@@ -7,7 +7,7 @@
     "start": "npx serve .",
     "dev": "npx serve . --listen 3000",
     "download-audio": "yt-dlp -x --audio-format mp3 -o \"assets/gargantua-theme.%(ext)s\" \"https://www.youtube.com/watch?v=UDVtMYqUAyw\"",
-    "build": "echo 'No build step required for static site'"
+    "build": "mkdir -p public && cp index.html public/ && cp -r assets public/ 2>/dev/null || (mkdir public && copy index.html public\\ && xcopy /E /I assets public\\assets\\)"
   },
   "keywords": [
     "black-hole",
