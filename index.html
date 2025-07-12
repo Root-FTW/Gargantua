@@ -252,7 +252,7 @@
 
 <div id="info">
     Black Hole<br>
-    <span style="font-size: 14px; opacity: 0.8;">Click and drag to rotate view</span>
+    <span id="interaction-text" style="font-size: 14px; opacity: 0.8;">Click and drag to rotate view</span>
 </div>
 
 
@@ -275,6 +275,14 @@
     const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
     const isTouchDevice = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
     const isLowEnd = isMobile && (navigator.hardwareConcurrency <= 4 || navigator.deviceMemory <= 4);
+
+    // Update interaction text based on device type
+    const interactionText = document.getElementById('interaction-text');
+    if (isTouchDevice) {
+        interactionText.textContent = 'Touch and drag to rotate view';
+    } else {
+        interactionText.textContent = 'Click and drag to rotate view';
+    }
 
     const scene = new THREE.Scene();
     scene.fog = new THREE.FogExp2(0x020104, 0.025);
