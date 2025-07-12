@@ -6,8 +6,7 @@
   "scripts": {
     "start": "npx serve .",
     "dev": "npx serve . --listen 3000",
-    "download-audio": "yt-dlp -x --audio-format mp3 -o \"assets/gargantua-theme.%(ext)s\" \"https://www.youtube.com/watch?v=UDVtMYqUAyw\"",
-    "build": "echo 'Static site - no build needed'"
+    "download-audio": "yt-dlp -x --audio-format mp3 -o \"assets/gargantua-theme.%(ext)s\" \"https://www.youtube.com/watch?v=UDVtMYqUAyw\""
   },
   "keywords": [
     "black-hole",
