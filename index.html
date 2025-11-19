@@ -137,7 +137,96 @@
             #footer { bottom: 10px; font-size: 9px; padding: 4px 8px; }
             #audioIndicator { top: 10px; right: 10px; font-size: 10px; padding: 4px 8px; }
         }
+<<<<<<< HEAD
     </style>
+=======
+        #audioIndicator {
+            top: 8px;
+            right: 8px;
+            font-size: 9px;
+        }
+    }
+
+    /* High DPI displays */
+    @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+        .ui-panel {
+            border-width: 0.5px;
+        }
+    }
+</style>
+<script type="importmap">
+{
+  "imports": {
+    "three": "https://cdn.jsdelivr.net/npm/three@0.163.0/build/three.module.js",
+    "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.163.0/examples/jsm/"
+  }
+}
+</script>
+
+<!-- Buy Me A Coffee Widget -->
+<script data-name="BMC-Widget" data-cfasync="false" src="https://cdnjs.buymeacoffee.com/1.0.0/widget.prod.min.js" data-id="rootftw" data-description="Support me on Buy me a coffee!" data-message="Your support helps fuel my work—literally with books and pizza, so I can continue creating. Thank you!" data-color="#FF5F5F" data-position="Right" data-x_margin="18" data-y_margin="18"></script>
+
+<div id="info">
+    Black Hole<br>
+    <span id="interaction-text" style="font-size: 14px; opacity: 0.8;">Click and drag to rotate view</span>
+</div>
+
+
+<footer id="footer" class="ui-panel auto-fade">Made with ❤️ by <a href="https://www.linkedin.com/in/jonathanftw/" target="_blank" rel="noopener noreferrer">Jonathan Paz</a></footer>
+
+<script type="module">
+    import * as THREE from 'three';
+    import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
+    import { EffectComposer } from 'three/addons/postprocessing/EffectComposer.js';
+    import { RenderPass } from 'three/addons/postprocessing/RenderPass.js';
+    import { UnrealBloomPass } from 'three/addons/postprocessing/UnrealBloomPass.js';
+    import { ShaderPass } from 'three/addons/postprocessing/ShaderPass.js';
+
+    const BLACK_HOLE_RADIUS = 1.3;
+    const DISK_INNER_RADIUS = BLACK_HOLE_RADIUS + 0.2;
+    const DISK_OUTER_RADIUS = 8.0;
+    const DISK_TILT_ANGLE = Math.PI / 3.0;
+
+    // Device detection variables (defined once)
+    const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+    const isTouchDevice = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
+    const isLowEnd = isMobile && (navigator.hardwareConcurrency <= 4 || navigator.deviceMemory <= 4);
+
+    // Update interaction text based on device type
+    const interactionText = document.getElementById('interaction-text');
+    if (isTouchDevice) {
+        interactionText.textContent = 'Touch and drag to rotate view';
+    } else {
+        interactionText.textContent = 'Click and drag to rotate view';
+    }
+
+    const scene = new THREE.Scene();
+    scene.fog = new THREE.FogExp2(0x020104, 0.025);
+
+    const camera = new THREE.PerspectiveCamera(60, window.innerWidth / window.innerHeight, 0.1, 4000);
+    camera.position.set(-6.5, 5.0, 6.5);
+
+    const renderer = new THREE.WebGLRenderer({
+        antialias: true,
+        powerPreference: "high-performance",
+        alpha: false,
+        stencil: false,
+        depth: true
+    });
+    renderer.setSize(window.innerWidth, window.innerHeight);
+
+    // Responsive pixel ratio handling
+    const pixelRatio = isMobile ? Math.min(window.devicePixelRatio, 2) : Math.min(window.devicePixelRatio, 1.5);
+    renderer.setPixelRatio(pixelRatio);
+
+    renderer.outputColorSpace = THREE.SRGBColorSpace;
+    renderer.toneMapping = THREE.ACESFilmicToneMapping;
+    renderer.toneMappingExposure = 1.2;
+    document.body.appendChild(renderer.domElement);
+
+    const composer = new EffectComposer(renderer);
+    composer.addPass(new RenderPass(scene, camera));
+>>>>>>> 5afe1ea9173f489ae11a0937993af35a998f82b5
     
     <script type="importmap">
     {
